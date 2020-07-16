@@ -1,6 +1,6 @@
-#define ledeVermelho 2
-#define ledeVerde 3
-#define entradaDigital 13
+#define ledeVerde 2
+#define ledeVermelho 3
+#define entradaDigital 4
 #define  entradaAnalogica 0
 #define espera 1000
 
