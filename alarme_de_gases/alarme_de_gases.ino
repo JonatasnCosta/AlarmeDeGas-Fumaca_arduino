@@ -1,6 +1,6 @@
 #define ledeVerde 2
-#define ledeVermelho 3
-#define entradaDigital 4
+#define lampada 6
+#define entradaDigital 13
 #define  entradaAnalogica 0
 #define espera 1000
 
@@ -15,8 +15,8 @@ void setup() {
   pinMode(ledeVerde, OUTPUT);
   
   
-  pinMode(ledeVermelho, OUTPUT);
-  digitalWrite(ledeVermelho, LOW); 
+  pinMode(lampada, OUTPUT);
+  digitalWrite(lampada, HIGH ); 
 
 }
 
@@ -33,21 +33,22 @@ void loop() {
   Serial.println();
   delay(1000);
 
-  if (aSensor < 500)
+  if (aSensor < 100)
   {
    digitalWrite(ledeVerde, HIGH);
   }
   else
   {
-     digitalWrite(ledeVerde, LOW);
+    digitalWrite(ledeVerde, LOW);
   }
-
-   if (aSensor >= 500)
+  
+ 
+   if (aSensor >= 110)
   {
-   digitalWrite(ledeVermelho, HIGH);
+   digitalWrite(lampada, LOW );
   }
   else
   {
-     digitalWrite(ledeVermelho, LOW);
+     digitalWrite(lampada, HIGH );
   }
 }
