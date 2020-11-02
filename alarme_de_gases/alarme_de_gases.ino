@@ -43,7 +43,7 @@ void loop() {
   }
   
  
-   if (aSensor >= 110)
+   if (aSensor >= 100)
   {
    digitalWrite(lampada, LOW );
   }
