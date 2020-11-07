@@ -1,0 +1,9 @@
+teste pelo serial monitor
+
+Serial.print("Leitura entrada digital:");
+  Serial.println(dSensor);
+
+  Serial.print("Nível do Gás:");
+  Serial.println(aSensor);
+  Serial.println();
+  delay(1000);
