@@ -6,7 +6,6 @@
 #define sirene 6
 #define entradaDigital 8
 #define entradaAnalogica 0
-#define espera 1000
 #define endereco 0x3F // Endereços comuns: 0x27, 0x3F
 #define colunas 16
 #define linhas 2
@@ -30,13 +29,7 @@ void setup()
   lcd.print("Sensor de Gas");
   delay(5000); // DELAY DE 5 SEGUNDOS
 
-  lcd.noBacklight(); // DESLIGA A ILUMINAÇÃO DO DISPLAY
-  delay(2000);       // DELAY DE 2 SEGUNDOS
-  lcd.backlight();   // LIGA A ILUMINAÇÃO DO DISPLAY
-  delay(2000);       // DELAY DE 2 SEGUNDOS
-
   lcd.clear(); // LIMPA O DISPLAY
-  //lcd.noBacklight(); // DESLIGA A ILUMINAÇÃO DO DISPLAY
   Serial.begin(9600);
   pinMode(entradaDigital, INPUT);
   pinMode(sirene, OUTPUT);
