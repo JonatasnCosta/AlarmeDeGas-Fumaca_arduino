@@ -9,6 +9,7 @@
 #define endereco 0x3F // Endereços comuns: 0x27, 0x3F
 #define colunas 16
 #define linhas 2
+#define botao 3
 // DEFINIÇÃO DAS CONSTANTES
 
 bool dSensor;
@@ -34,6 +35,8 @@ void setup()
   pinMode(entradaDigital, INPUT);
   pinMode(sirene, OUTPUT);
   digitalWrite(sirene, HIGH);
+  pinMode(botao, INPUT_PULLUP);
+  
 }
 
 void loop()
@@ -41,7 +44,7 @@ void loop()
   dSensor = digitalRead(entradaDigital);
   aSensor = analogRead(entradaAnalogica); // VERIFICA O NÍVEL DE GÁS NA ENTRADA A0
 
-  if (aSensor >= 100) // CONDICIONAL PARA DESLIGAR A SIRENE
+  if (aSensor >= 100) // CONDICIONAL PARA LIGAR E DESLIGAR A SIRENE AUTOMATICAMENTE
   {
     digitalWrite(sirene, LOW);
   }
@@ -49,6 +52,11 @@ void loop()
   {
     digitalWrite(sirene, HIGH);
   }
+ 
+  if(digitalRead(botao)== LOW){  // CONDICIONAL PARA DESLIGAR A SIRENE PELO BOTÃO EM QUANTO O BOTÃO FOR PRECIONADO
+  digitalWrite(sirene, HIGH);
+  }
+  
   lcd.print("Nivel do Gas:");
   lcd.setCursor(0, 1); // POSICIONA O CURSOR NA PRIMEIRA COLUNA DA LINHA 2
   lcd.print(aSensor);
