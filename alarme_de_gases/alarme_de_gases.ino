@@ -24,11 +24,23 @@ void setup()
   lcd.backlight(); // LIGA A ILUMINAÇÃO DO DISPLAY
   lcd.clear();     // LIMPA O DISPLAY
 
-  lcd.print("Iniciando ...");
-  delay(5000);         // DELAY DE 5 SEGUNDOS
-  lcd.setCursor(0, 1); // POSICIONA O CURSOR NA PRIMEIRA COLUNA DA LINHA 2
-  lcd.print("Sensor de Gas");
-  delay(5000); // DELAY DE 5 SEGUNDOS
+  lcd.print("  Iniciando ...");
+  lcd.setCursor(0, 1);
+  delay(5000);// DELAY DE 5 SEGUNDOS
+  lcd.clear();
+  lcd.print("Checando os ");
+  lcd.setCursor(0, 1);
+  lcd.print("componentes");
+  lcd.setCursor(0, 2);
+  delay(2000);
+  lcd.clear();
+  delay(2000);
+  lcd.print("   Sistema ok");
+  lcd.setCursor(0, 1);
+  delay(2000); 
+  lcd.print("Sensor de gas");
+  lcd.setCursor(0, 1); // POSICIONA O CURSOR NA PRIMEIRA COLUNA DA LINHA 1
+  delay(2000); // DELAY DE 5 SEGUNDOS
 
   lcd.clear(); // LIMPA O DISPLAY
   Serial.begin(9600);
@@ -56,11 +68,29 @@ void loop()
   if(digitalRead(botao)== LOW){  // CONDICIONAL PARA DESLIGAR A SIRENE PELO BOTÃO EM QUANTO O BOTÃO FOR PRECIONADO
   digitalWrite(sirene, HIGH);
   }
-  
-  lcd.print("Nivel do Gas:");
+
+  if(aSensor <= 99)
+  {
+  lcd.print("Sem vazamento");
   lcd.setCursor(0, 1); // POSICIONA O CURSOR NA PRIMEIRA COLUNA DA LINHA 2
-  lcd.print(aSensor);
+  lcd.print("detectado");
   lcd.setCursor(0, 2);
   delay(1000);
   lcd.clear();
+  }
+
+  if(aSensor >= 100)
+  {
+  lcd.print("Gas inflamavel");
+  lcd.setCursor(0,1);
+  delay(1000);
+  lcd.clear();
+  lcd.print("Detectado");
+  lcd.setCursor(0,1);
+  lcd.print(aSensor);
+  lcd.setCursor(0,2);
+  delay(1000);
+  lcd.clear();
+  }
+ 
 }
