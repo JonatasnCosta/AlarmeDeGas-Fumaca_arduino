@@ -11,7 +11,7 @@
 #define linhas 2
 #define botao 3
 // DEFINIÇÃO DAS CONSTANTES
-//Outro codigo
+//Outro codigoo
 
 bool dSensor;
 int aSensor;
