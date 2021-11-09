@@ -3,7 +3,7 @@
 #include <LiquidCrystal_I2C.h>
 
 
-##define sirene 6
+#define sirene 6
 #define entradaDigital 8
 #define entradaAnalogica 0
 #define endereco 0x3F // Endereços comuns: 0x27, 0x3F
