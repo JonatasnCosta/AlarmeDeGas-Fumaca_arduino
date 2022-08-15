@@ -1,3 +1,4 @@
+
 // INCLUSÃO DE BIBLIOTECAS
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
@@ -57,7 +58,7 @@ void loop()
   dSensor = digitalRead(entradaDigital);
   aSensor = analogRead(entradaAnalogica); // VERIFICA O NÍVEL DE GÁS NA ENTRADA A0
 
-  if (aSensor >= 100) // CONDICIONAL PARA LIGAR E DESLIGAR A SIRENE AUTOMATICAMENTE
+  if (aSensor >= 300) // CONDICIONAL PARA LIGAR E DESLIGAR A SIRENE AUTOMATICAMENTE
   {
     digitalWrite(sirene, LOW);
   }
@@ -70,23 +71,23 @@ void loop()
   digitalWrite(sirene, HIGH);
   }
 
-  if(aSensor <= 99)
+  if(aSensor <= 299)
   {
   lcd.print("Sem vazamento");
   lcd.setCursor(0, 1); // POSICIONA O CURSOR NA PRIMEIRA COLUNA DA LINHA 2
-  lcd.print("detectado");
+  lcd.print(aSensor);
   lcd.setCursor(0, 2);
   delay(1000);
   lcd.clear();
   }
 
-  if(aSensor >= 100)
+  if(aSensor >= 300)
   {
   lcd.print("Gas inflamavel");
   lcd.setCursor(0,1);
   delay(1000);
   lcd.clear();
-  lcd.print("Detectado");
+  lcd.print("detectado");
   lcd.setCursor(0,1);
   lcd.print(aSensor);
   lcd.setCursor(0,2);
